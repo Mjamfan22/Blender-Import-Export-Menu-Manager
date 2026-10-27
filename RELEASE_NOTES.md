@@ -28,10 +28,11 @@ This release was validated with Blender 5.2.3 LTS. The automated suite covers
 menu discovery, independent Import/Export visibility, group headings and
 separators, custom labels, drag ordering, registration persistence, restoration
 of original menus, specialty add-on callbacks, and installation from the final
-ZIP in a disposable Blender profile.
+ZIP in a disposable Blender profile. Release packaging is reproducible across
+Windows, Linux, and macOS, and GitHub verifies the checksum before publishing.
 
 ## Package integrity
 
 - File: `BM_Import_Export_Menu_Manager_v1.1.2.zip`
-- Size: 15,075 bytes
-- SHA-256: `b9404b2ae41cf6a41f05f03052786d5a2c58de5326bed04c9869009d4730b889`
+- Size: 52,325 bytes
+- SHA-256: `b6d1eb6ed71060da604c608270c6fe4fe0a47d02e190ce7af5b04aa1ed47f938`

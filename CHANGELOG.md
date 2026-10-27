@@ -10,6 +10,8 @@ versioning.
   group assignment, and fallback arrows together.
 - Recalibrated drag movement for the compact row height.
 - Added public project, maintainer, and support metadata.
+- Made release ZIP generation byte-for-byte reproducible across operating
+  systems and added automated checksum verification.
 
 ## [1.1.1] — 2026-10-26
 

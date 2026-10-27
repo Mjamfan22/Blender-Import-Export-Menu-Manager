@@ -26,11 +26,14 @@ def main() -> None:
     ]
 
     DIST.mkdir(exist_ok=True)
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    # Store files without platform-dependent compression so Windows, Linux,
+    # and macOS produce the exact same release bytes and checksum.
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
         for path in files:
             relative = path.relative_to(SOURCE).as_posix()
             info = zipfile.ZipInfo(relative, date_time=(2026, 10, 26, 12, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
+            info.create_system = 3
+            info.compress_type = zipfile.ZIP_STORED
             info.external_attr = 0o100644 << 16
             archive.writestr(info, path.read_bytes())
 
