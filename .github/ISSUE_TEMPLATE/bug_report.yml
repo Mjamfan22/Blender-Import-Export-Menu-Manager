@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible problem with the add-on
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a problem.
+  - type: input
+    id: blender-version
+    attributes:
+      label: Blender version
+      placeholder: 5.2.3 LTS
+    validations:
+      required: true
+  - type: input
+    id: addon-version
+    attributes:
+      label: Add-on version
+      placeholder: 1.1.2
+    validations:
+      required: true
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating system
+      options: [Windows, macOS, Linux]
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Describe the smallest sequence that consistently shows the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: addons
+    attributes:
+      label: Related format add-ons
+      description: List any import/export add-ons involved.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or console output
+      render: shell

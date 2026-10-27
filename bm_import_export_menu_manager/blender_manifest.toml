@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+
+id = "bm_import_export_menu_manager"
+version = "1.1.2"
+name = "BM Import & Export Menu Manager"
+tagline = "Organize Blender's File Import and Export menus"
+maintainer = "Mjamfan22"
+type = "add-on"
+website = "https://github.com/Mjamfan22/Blender-Import-Export-Menu-Manager"
+
+tags = ["Import-Export", "User Interface"]
+blender_version_min = "5.2.0"
+license = ["SPDX:MIT"]
+copyright = ["2026 OpenAI"]
