@@ -1,0 +1,39 @@
+name: Publish release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[publish v1.1.2]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate source and metadata
+        run: python tools/validate.py
+      - name: Build deterministic extension package
+        run: python tools/build_release.py
+      - name: Verify package checksum
+        shell: bash
+        run: |
+          echo "b9404b2ae41cf6a41f05f03052786d5a2c58de5326bed04c9869009d4730b889  dist/BM_Import_Export_Menu_Manager_v1.1.2.zip" | sha256sum --check --strict
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.2 \
+            dist/BM_Import_Export_Menu_Manager_v1.1.2.zip \
+            --title "BM Import & Export Menu Manager 1.1.2" \
+            --notes-file RELEASE_NOTES.md \
+            --verify-tag
