@@ -35,4 +35,4 @@ Windows, Linux, and macOS, and GitHub verifies the checksum before publishing.
 
 - File: `BM_Import_Export_Menu_Manager_v1.1.2.zip`
 - Size: 52,325 bytes
-- SHA-256: `b6d1eb6ed71060da604c608270c6fe4fe0a47d02e190ce7af5b04aa1ed47f938`
+- SHA-256: `5a43303240c8a252932a594d15b2af9d9d319ec52ef011f7709a46db422f14dd`

@@ -17,9 +17,13 @@ def main() -> None:
     manifest = tomllib.loads((SOURCE / "blender_manifest.toml").read_text(encoding="utf-8"))
     version = manifest["version"]
     output = DIST / f"BM_Import_Export_Menu_Manager_v{version}.zip"
+    paths = sorted(
+        SOURCE.rglob("*"),
+        key=lambda path: path.relative_to(SOURCE).as_posix(),
+    )
     files = [
         path
-        for path in sorted(SOURCE.rglob("*"))
+        for path in paths
         if path.is_file()
         and "__pycache__" not in path.parts
         and path.suffix in INCLUDED_SUFFIXES
